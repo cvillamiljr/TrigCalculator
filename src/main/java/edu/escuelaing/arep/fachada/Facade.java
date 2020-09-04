@@ -48,7 +48,8 @@ public class Facade {
         String angulo = req.queryParams("Datos");
         String funcion = req.queryParams("Funcion");
 
-        JSONObject respuesta= new TrigCalculator().resultsPage(angulo,funcion);
+        JSONObject respuesta= null;
+        respuesta =new TrigCalculator().resultsPage(angulo,funcion);
         return respuesta;
     }
 
