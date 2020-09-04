@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -cp target/classes:target/dependency/* edu.escuelaing.arep.fachada.Facade
+web: java $JAVA_OPTS -cp target/classes:target/dependency/* edu.escuelaing.arep.servicio.TrigCalculator

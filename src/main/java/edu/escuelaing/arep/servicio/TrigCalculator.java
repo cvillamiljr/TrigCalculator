@@ -8,23 +8,19 @@ import static spark.Spark.*;
 
 public class TrigCalculator {
 
-    public  JSONObject resultsPage(String angulo,String funcion) {
+    public static void main(String[] args) {
+        port(getPort());
+        get("/calculate",(req,res)->{
+            String operation = req.queryParams("operation");
+            String number = req.queryParams("number");
+            JSONObject jsonObject = new JSONObject();
+            double valorARetornar = Trigonometrica.calculo(operation,number);
+            jsonObject.put("operation",operation);
+            jsonObject.put("value",valorARetornar);
+            return jsonObject;
 
-        Trigonometrica t=new Trigonometrica();
-        JSONObject json= new JSONObject();
-        if (funcion.equals("sin")){
-            double resSeno= t.getSeno(Double.parseDouble(angulo));
-            json.put("sin",resSeno);
-        }
-        else if (funcion.equals("cos")){
-            double resCoseno=t.getCoseno(Double.parseDouble(angulo));
-            json.put("cos",resCoseno);
-        }
-        else if (funcion.equals("tan")){
-            double restTangente=t.getTangete(Double.parseDouble(angulo));
-            json.put("tan",restTangente);
-        }
-        return json;
+        });
+
     }
 
     static int getPort() {
