@@ -28,7 +28,7 @@ public class TrigCalculator {
         if (System.getenv("PORT") != null) {
             return Integer.parseInt(System.getenv("PORT"));
         }
-        return 46000; //returns default port if heroku-port isn't set (i.e. on localhost)
+        return 46001; //returns default port if heroku-port isn't set (i.e. on localhost)
     }
 
 }
