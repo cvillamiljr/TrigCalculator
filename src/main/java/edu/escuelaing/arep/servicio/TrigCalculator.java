@@ -15,11 +15,12 @@ public class TrigCalculator {
             String number = req.queryParams("number");
             JSONObject jsonObject = new JSONObject();
             double valorARetornar = Trigonometrica.calculo(operation,number);
-            jsonObject.put("operation",operation);
-            jsonObject.put("value",valorARetornar);
+            jsonObject.put("Funcion",operation);
+            jsonObject.put("Resultado",valorARetornar);
             return jsonObject;
 
         });
+
 
     }
 
